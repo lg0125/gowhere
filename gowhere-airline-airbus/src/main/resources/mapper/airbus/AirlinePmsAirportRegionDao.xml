@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eighty.gowhere.airbus.dao.AirlinePmsAirportRegionDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.eighty.gowhere.airbus.entity.AirlinePmsAirportRegionEntity" id="airlinePmsAirportRegionMap">
+        <result property="airportId" column="airport_id"/>
+        <result property="regionId" column="region_id"/>
+        <result property="id" column="id"/>
+        <result property="deleted" column="deleted"/>
+        <result property="airportName" column="airport_name"/>
+        <result property="regionName" column="region_name"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eighty.gowhere.amazon.dao.WebOmsOrderPayinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.eighty.gowhere.amazon.entity.WebOmsOrderPayinfoEntity" id="webOmsOrderPayinfoMap">
+        <result property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="amount" column="amount"/>
+        <result property="payStatus" column="pay_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="confirmTime" column="confirm_time"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+
+
+</mapper>
