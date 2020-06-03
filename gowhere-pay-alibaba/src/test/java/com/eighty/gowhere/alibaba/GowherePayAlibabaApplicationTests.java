@@ -1,20 +1,35 @@
 package com.eighty.gowhere.alibaba;
 
-import org.junit.Test;
+import com.eighty.gowhere.alibaba.entity.CardEntity;
+import com.eighty.gowhere.alibaba.service.CardService;
+import org.junit.jupiter.api.Test;
 
-import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.math.BigDecimal;
 
 
-
-@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class GowherePayAlibabaApplicationTests {
+class GowherePayAlibabaApplicationTests {
+
+    @Autowired
+    CardService cardService;
 
     @Test
-    public void contextLoads() {
-        System.out.println("asdasda");
+     void contextLoads() {
+        CardEntity cardEntity = new CardEntity();
+
+
+        cardEntity.setUserName("Abel");
+        cardEntity.setUserId(65897L);
+        cardEntity.setCardId(1754879L);
+        cardEntity.setAmount(new BigDecimal(50000));
+
+
+        cardService.save(cardEntity);
+
+        System.out.println("插入成功");
     }
 
 }
