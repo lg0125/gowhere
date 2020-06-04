@@ -4,5 +4,13 @@ spring:
     password: Zxc3250033
     url: jdbc:mysql://47.115.25.100:3306/gowhere_pay_tencent?serverTimezone=GMT%2B8&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: 47.115.25.100
+    port: 5672
+    virtual-host: /
+  redis:
+    host: 47.115.25.100
+  cache:
+    type: redis
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
