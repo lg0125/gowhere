@@ -5,11 +5,7 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.tencent.entity.CardEntity;
 import com.eighty.gowhere.tencent.service.CardService;
@@ -37,7 +33,7 @@ public class CardController {
      *
      *
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("tencent:card:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = cardService.queryPage(params);
@@ -49,7 +45,7 @@ public class CardController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("tencent:card:info")
     public R info(@PathVariable("id") Long id){
 		CardEntity card = cardService.getById(id);
@@ -60,7 +56,7 @@ public class CardController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("tencent:card:save")
     public R save(@RequestBody CardEntity card){
 		cardService.save(card);
@@ -71,7 +67,7 @@ public class CardController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("tencent:card:update")
     public R update(@RequestBody CardEntity card){
 		cardService.updateById(card);
@@ -82,7 +78,7 @@ public class CardController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("tencent:card:delete")
     public R delete(@RequestBody Long[] ids){
 		cardService.removeByIds(Arrays.asList(ids));

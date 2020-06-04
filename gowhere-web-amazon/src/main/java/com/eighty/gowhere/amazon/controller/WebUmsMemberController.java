@@ -6,11 +6,7 @@ import java.util.Map;
 import com.eighty.gowhere.amazon.utils.PageUtils;
 import com.eighty.gowhere.amazon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.amazon.entity.WebUmsMemberEntity;
 import com.eighty.gowhere.amazon.service.WebUmsMemberService;
@@ -26,7 +22,7 @@ import com.eighty.gowhere.amazon.service.WebUmsMemberService;
  * @date 2020-06-02 10:58:18
  */
 @RestController
-@RequestMapping("amazon/webumsmember")
+@RequestMapping("amazon/web/ums/member")
 public class WebUmsMemberController {
     @Autowired
     private WebUmsMemberService webUmsMemberService;
@@ -34,7 +30,7 @@ public class WebUmsMemberController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("amazon:webumsmember:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = webUmsMemberService.queryPage(params);
@@ -46,7 +42,7 @@ public class WebUmsMemberController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("amazon:webumsmember:info")
     public R info(@PathVariable("id") Long id){
 		WebUmsMemberEntity webUmsMember = webUmsMemberService.getById(id);
@@ -57,7 +53,7 @@ public class WebUmsMemberController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("amazon:webumsmember:save")
     public R save(@RequestBody WebUmsMemberEntity webUmsMember){
 		webUmsMemberService.save(webUmsMember);
@@ -68,7 +64,7 @@ public class WebUmsMemberController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("amazon:webumsmember:update")
     public R update(@RequestBody WebUmsMemberEntity webUmsMember){
 		webUmsMemberService.updateById(webUmsMember);
@@ -79,7 +75,7 @@ public class WebUmsMemberController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("amazon:webumsmember:delete")
     public R delete(@RequestBody Long[] ids){
 		webUmsMemberService.removeByIds(Arrays.asList(ids));

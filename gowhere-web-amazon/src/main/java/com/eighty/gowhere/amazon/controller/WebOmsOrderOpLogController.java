@@ -7,11 +7,7 @@ import java.util.Map;
 import com.eighty.gowhere.amazon.utils.PageUtils;
 import com.eighty.gowhere.amazon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.amazon.entity.WebOmsOrderOpLogEntity;
 import com.eighty.gowhere.amazon.service.WebOmsOrderOpLogService;
@@ -26,7 +22,7 @@ import com.eighty.gowhere.amazon.service.WebOmsOrderOpLogService;
  * @date 2020-06-02 10:58:18
  */
 @RestController
-@RequestMapping("amazon/webomsorderoplog")
+@RequestMapping("amazon/web/oms/order/op/log")
 public class WebOmsOrderOpLogController {
     @Autowired
     private WebOmsOrderOpLogService webOmsOrderOpLogService;
@@ -34,7 +30,7 @@ public class WebOmsOrderOpLogController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("amazon:webomsorderoplog:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = webOmsOrderOpLogService.queryPage(params);
@@ -46,7 +42,7 @@ public class WebOmsOrderOpLogController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("amazon:webomsorderoplog:info")
     public R info(@PathVariable("id") Long id){
 		WebOmsOrderOpLogEntity webOmsOrderOpLog = webOmsOrderOpLogService.getById(id);
@@ -57,7 +53,7 @@ public class WebOmsOrderOpLogController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("amazon:webomsorderoplog:save")
     public R save(@RequestBody WebOmsOrderOpLogEntity webOmsOrderOpLog){
 		webOmsOrderOpLogService.save(webOmsOrderOpLog);
@@ -68,7 +64,7 @@ public class WebOmsOrderOpLogController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("amazon:webomsorderoplog:update")
     public R update(@RequestBody WebOmsOrderOpLogEntity webOmsOrderOpLog){
 		webOmsOrderOpLogService.updateById(webOmsOrderOpLog);
@@ -79,7 +75,7 @@ public class WebOmsOrderOpLogController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("amazon:webomsorderoplog:delete")
     public R delete(@RequestBody Long[] ids){
 		webOmsOrderOpLogService.removeByIds(Arrays.asList(ids));

@@ -30,7 +30,7 @@ public class CardController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("alibaba:card:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = cardService.queryPage(params);
@@ -42,7 +42,7 @@ public class CardController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("alibaba:card:info")
     public R info(@PathVariable("id") Long id){
 		CardEntity card = cardService.getById(id);
@@ -53,7 +53,7 @@ public class CardController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("alibaba:card:save")
     public R save(@RequestBody CardEntity card){
 		cardService.save(card);
@@ -64,7 +64,7 @@ public class CardController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("alibaba:card:update")
     public R update(@RequestBody CardEntity card){
 		cardService.updateById(card);
@@ -75,7 +75,7 @@ public class CardController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("alibaba:card:delete")
     public R delete(@RequestBody Long[] ids){
 		cardService.removeByIds(Arrays.asList(ids));

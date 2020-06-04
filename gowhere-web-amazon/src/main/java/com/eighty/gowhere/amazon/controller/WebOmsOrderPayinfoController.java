@@ -6,11 +6,7 @@ import java.util.Map;
 import com.eighty.gowhere.amazon.utils.PageUtils;
 import com.eighty.gowhere.amazon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.amazon.entity.WebOmsOrderPayinfoEntity;
 import com.eighty.gowhere.amazon.service.WebOmsOrderPayinfoService;
@@ -26,7 +22,7 @@ import com.eighty.gowhere.amazon.service.WebOmsOrderPayinfoService;
  * @date 2020-06-02 10:58:18
  */
 @RestController
-@RequestMapping("amazon/webomsorderpayinfo")
+@RequestMapping("amazon/web/oms/order/pay/info")
 public class WebOmsOrderPayinfoController {
 
     @Autowired
@@ -35,7 +31,7 @@ public class WebOmsOrderPayinfoController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("amazon:webomsorderpayinfo:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = webOmsOrderPayinfoService.queryPage(params);
@@ -47,7 +43,7 @@ public class WebOmsOrderPayinfoController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("amazon:webomsorderpayinfo:info")
     public R info(@PathVariable("id") Long id){
 		WebOmsOrderPayinfoEntity webOmsOrderPayinfo = webOmsOrderPayinfoService.getById(id);
@@ -58,7 +54,7 @@ public class WebOmsOrderPayinfoController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("amazon:webomsorderpayinfo:save")
     public R save(@RequestBody WebOmsOrderPayinfoEntity webOmsOrderPayinfo){
 		webOmsOrderPayinfoService.save(webOmsOrderPayinfo);
@@ -69,7 +65,7 @@ public class WebOmsOrderPayinfoController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("amazon:webomsorderpayinfo:update")
     public R update(@RequestBody WebOmsOrderPayinfoEntity webOmsOrderPayinfo){
 		webOmsOrderPayinfoService.updateById(webOmsOrderPayinfo);

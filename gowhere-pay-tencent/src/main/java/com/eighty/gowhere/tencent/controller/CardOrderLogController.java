@@ -5,11 +5,7 @@ import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.tencent.entity.CardOrderLogEntity;
 import com.eighty.gowhere.tencent.service.CardOrderLogService;
@@ -26,7 +22,7 @@ import com.eighty.gowhere.tencent.utils.*;
  * @date 2020-06-02 10:40:56
  */
 @RestController
-@RequestMapping("tencent/cardorderlog")
+@RequestMapping("tencent/card/order/log")
 public class CardOrderLogController {
     @Autowired
     private CardOrderLogService cardOrderLogService;
@@ -34,7 +30,7 @@ public class CardOrderLogController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("tencent:cardorderlog:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = cardOrderLogService.queryPage(params);
@@ -46,7 +42,7 @@ public class CardOrderLogController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("tencent:cardorderlog:info")
     public R info(@PathVariable("id") Long id){
 		CardOrderLogEntity cardOrderLog = cardOrderLogService.getById(id);
@@ -57,7 +53,7 @@ public class CardOrderLogController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("tencent:cardorderlog:save")
     public R save(@RequestBody CardOrderLogEntity cardOrderLog){
 		cardOrderLogService.save(cardOrderLog);
@@ -68,7 +64,7 @@ public class CardOrderLogController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("tencent:cardorderlog:update")
     public R update(@RequestBody CardOrderLogEntity cardOrderLog){
 		cardOrderLogService.updateById(cardOrderLog);
@@ -79,7 +75,7 @@ public class CardOrderLogController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("tencent:cardorderlog:delete")
     public R delete(@RequestBody Long[] ids){
 		cardOrderLogService.removeByIds(Arrays.asList(ids));

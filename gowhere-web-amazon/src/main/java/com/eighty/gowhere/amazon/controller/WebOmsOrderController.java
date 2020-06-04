@@ -7,11 +7,7 @@ import java.util.Map;
 import com.eighty.gowhere.amazon.utils.PageUtils;
 import com.eighty.gowhere.amazon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.amazon.entity.WebOmsOrderEntity;
 import com.eighty.gowhere.amazon.service.WebOmsOrderService;
@@ -27,7 +23,7 @@ import com.eighty.gowhere.amazon.service.WebOmsOrderService;
  * @date 2020-06-02 10:58:18
  */
 @RestController
-@RequestMapping("amazon/webomsorder")
+@RequestMapping("amazon/web/oms/order")
 public class WebOmsOrderController {
     @Autowired
     private WebOmsOrderService webOmsOrderService;
@@ -35,7 +31,7 @@ public class WebOmsOrderController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("amazon:webomsorder:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = webOmsOrderService.queryPage(params);
@@ -47,7 +43,7 @@ public class WebOmsOrderController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("amazon:webomsorder:info")
     public R info(@PathVariable("id") Long id){
 		WebOmsOrderEntity webOmsOrder = webOmsOrderService.getById(id);
@@ -58,7 +54,7 @@ public class WebOmsOrderController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("amazon:webomsorder:save")
     public R save(@RequestBody WebOmsOrderEntity webOmsOrder){
 		webOmsOrderService.save(webOmsOrder);
@@ -69,7 +65,7 @@ public class WebOmsOrderController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("amazon:webomsorder:update")
     public R update(@RequestBody WebOmsOrderEntity webOmsOrder){
 		webOmsOrderService.updateById(webOmsOrder);
@@ -80,7 +76,7 @@ public class WebOmsOrderController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("amazon:webomsorder:delete")
     public R delete(@RequestBody Long[] ids){
 		webOmsOrderService.removeByIds(Arrays.asList(ids));

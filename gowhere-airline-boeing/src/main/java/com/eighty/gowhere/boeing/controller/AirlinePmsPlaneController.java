@@ -6,11 +6,7 @@ import java.util.Map;
 import com.eighty.gowhere.boeing.utils.PageUtils;
 import com.eighty.gowhere.boeing.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.boeing.entity.AirlinePmsPlaneEntity;
 import com.eighty.gowhere.boeing.service.AirlinePmsPlaneService;
@@ -26,7 +22,7 @@ import com.eighty.gowhere.boeing.service.AirlinePmsPlaneService;
  * @date 2020-06-02 10:48:45
  */
 @RestController
-@RequestMapping("boeing/airlinepmsplane")
+@RequestMapping("boeing/airline/pms/plane")
 public class AirlinePmsPlaneController {
     @Autowired
     private AirlinePmsPlaneService airlinePmsPlaneService;
@@ -34,7 +30,7 @@ public class AirlinePmsPlaneController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("boeing:airlinepmsplane:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsPlaneService.queryPage(params);
@@ -46,7 +42,7 @@ public class AirlinePmsPlaneController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{planeId}")
+    @GetMapping("/info/{planeId}")
     //@RequiresPermissions("boeing:airlinepmsplane:info")
     public R info(@PathVariable("planeId") String planeId){
 		AirlinePmsPlaneEntity airlinePmsPlane = airlinePmsPlaneService.getById(planeId);
@@ -57,7 +53,7 @@ public class AirlinePmsPlaneController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("boeing:airlinepmsplane:save")
     public R save(@RequestBody AirlinePmsPlaneEntity airlinePmsPlane){
 		airlinePmsPlaneService.save(airlinePmsPlane);
@@ -68,7 +64,7 @@ public class AirlinePmsPlaneController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("boeing:airlinepmsplane:update")
     public R update(@RequestBody AirlinePmsPlaneEntity airlinePmsPlane){
 		airlinePmsPlaneService.updateById(airlinePmsPlane);
@@ -79,7 +75,7 @@ public class AirlinePmsPlaneController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("boeing:airlinepmsplane:delete")
     public R delete(@RequestBody String[] planeIds){
 		airlinePmsPlaneService.removeByIds(Arrays.asList(planeIds));

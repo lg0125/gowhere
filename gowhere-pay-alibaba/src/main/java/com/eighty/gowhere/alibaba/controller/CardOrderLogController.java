@@ -7,11 +7,7 @@ import java.util.Map;
 import com.eighty.gowhere.alibaba.utils.PageUtils;
 import com.eighty.gowhere.alibaba.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.alibaba.entity.CardOrderLogEntity;
 import com.eighty.gowhere.alibaba.service.CardOrderLogService;
@@ -35,7 +31,7 @@ public class CardOrderLogController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("alibaba:cardorderlog:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = cardOrderLogService.queryPage(params);
@@ -47,7 +43,7 @@ public class CardOrderLogController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("alibaba:cardorderlog:info")
     public R info(@PathVariable("id") Long id){
 		CardOrderLogEntity cardOrderLog = cardOrderLogService.getById(id);
@@ -58,7 +54,7 @@ public class CardOrderLogController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("alibaba:cardorderlog:save")
     public R save(@RequestBody CardOrderLogEntity cardOrderLog){
 		cardOrderLogService.save(cardOrderLog);
@@ -69,7 +65,7 @@ public class CardOrderLogController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("alibaba:cardorderlog:update")
     public R update(@RequestBody CardOrderLogEntity cardOrderLog){
 		cardOrderLogService.updateById(cardOrderLog);
@@ -80,7 +76,7 @@ public class CardOrderLogController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("alibaba:cardorderlog:delete")
     public R delete(@RequestBody Long[] ids){
 		cardOrderLogService.removeByIds(Arrays.asList(ids));

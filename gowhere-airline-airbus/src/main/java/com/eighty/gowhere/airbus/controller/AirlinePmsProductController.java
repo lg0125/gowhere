@@ -7,11 +7,7 @@ import java.util.Map;
 import com.eighty.gowhere.airbus.utils.PageUtils;
 import com.eighty.gowhere.airbus.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.airbus.entity.AirlinePmsProductEntity;
 import com.eighty.gowhere.airbus.service.AirlinePmsProductService;
@@ -27,7 +23,7 @@ import com.eighty.gowhere.airbus.service.AirlinePmsProductService;
  * @date 2020-06-02 10:54:24
  */
 @RestController
-@RequestMapping("airbus/airlinepmsproduct")
+@RequestMapping("airbus/airline/pms/product")
 public class AirlinePmsProductController {
     @Autowired
     private AirlinePmsProductService airlinePmsProductService;
@@ -35,7 +31,7 @@ public class AirlinePmsProductController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("airbus:airlinepmsproduct:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsProductService.queryPage(params);
@@ -47,7 +43,7 @@ public class AirlinePmsProductController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("airbus:airlinepmsproduct:info")
     public R info(@PathVariable("id") Long id){
 		AirlinePmsProductEntity airlinePmsProduct = airlinePmsProductService.getById(id);
@@ -58,7 +54,7 @@ public class AirlinePmsProductController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("airbus:airlinepmsproduct:save")
     public R save(@RequestBody AirlinePmsProductEntity airlinePmsProduct){
 		airlinePmsProductService.save(airlinePmsProduct);
@@ -69,7 +65,7 @@ public class AirlinePmsProductController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("airbus:airlinepmsproduct:update")
     public R update(@RequestBody AirlinePmsProductEntity airlinePmsProduct){
 		airlinePmsProductService.updateById(airlinePmsProduct);
@@ -80,7 +76,7 @@ public class AirlinePmsProductController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("airbus:airlinepmsproduct:delete")
     public R delete(@RequestBody Long[] ids){
 		airlinePmsProductService.removeByIds(Arrays.asList(ids));

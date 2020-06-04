@@ -6,11 +6,7 @@ import java.util.Map;
 import com.eighty.gowhere.airbus.utils.PageUtils;
 import com.eighty.gowhere.airbus.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.airbus.entity.AirlinePmsAirportRegionEntity;
 import com.eighty.gowhere.airbus.service.AirlinePmsAirportRegionService;
@@ -25,7 +21,7 @@ import com.eighty.gowhere.airbus.service.AirlinePmsAirportRegionService;
  * @date 2020-06-02 10:54:24
  */
 @RestController
-@RequestMapping("airbus/airlinepmsairportregion")
+@RequestMapping("airbus/airline/pms/airport/region")
 public class AirlinePmsAirportRegionController {
     @Autowired
     private AirlinePmsAirportRegionService airlinePmsAirportRegionService;
@@ -33,7 +29,7 @@ public class AirlinePmsAirportRegionController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     //@RequiresPermissions("airbus:airlinepmsairportregion:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsAirportRegionService.queryPage(params);
@@ -45,7 +41,7 @@ public class AirlinePmsAirportRegionController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     //@RequiresPermissions("airbus:airlinepmsairportregion:info")
     public R info(@PathVariable("id") Long id){
 		AirlinePmsAirportRegionEntity airlinePmsAirportRegion = airlinePmsAirportRegionService.getById(id);
@@ -56,7 +52,7 @@ public class AirlinePmsAirportRegionController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     //@RequiresPermissions("airbus:airlinepmsairportregion:save")
     public R save(@RequestBody AirlinePmsAirportRegionEntity airlinePmsAirportRegion){
 		airlinePmsAirportRegionService.save(airlinePmsAirportRegion);
@@ -67,7 +63,7 @@ public class AirlinePmsAirportRegionController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PutMapping("/update")
     //@RequiresPermissions("airbus:airlinepmsairportregion:update")
     public R update(@RequestBody AirlinePmsAirportRegionEntity airlinePmsAirportRegion){
 		airlinePmsAirportRegionService.updateById(airlinePmsAirportRegion);
@@ -78,7 +74,7 @@ public class AirlinePmsAirportRegionController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     //@RequiresPermissions("airbus:airlinepmsairportregion:delete")
     public R delete(@RequestBody Long[] ids){
 		airlinePmsAirportRegionService.removeByIds(Arrays.asList(ids));
