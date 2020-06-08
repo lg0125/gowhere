@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.eighty.gowhere.amazon.utils.PageUtils;
 import com.eighty.gowhere.amazon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,17 @@ public class WebOmsOrderItemController {
     @Autowired
     private WebOmsOrderItemService webOmsOrderItemService;
 
+    @GetMapping("/{orderId}")
+    public WebOmsOrderItemEntity getOrderItemByOrderId(@PathVariable Long orderId){
+        return webOmsOrderItemService.getOne(
+                new QueryWrapper<WebOmsOrderItemEntity>()
+                        .eq("order_id",orderId));
+    }
+
     /**
      * 列表
      */
     @GetMapping("/list")
-    //@RequiresPermissions("amazon:webomsorderitem:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = webOmsOrderItemService.queryPage(params);
 
@@ -44,7 +51,7 @@ public class WebOmsOrderItemController {
      * 信息
      */
     @GetMapping("/info/{id}")
-    //@RequiresPermissions("amazon:webomsorderitem:info")
+
     public R info(@PathVariable("id") Long id){
 		WebOmsOrderItemEntity webOmsOrderItem = webOmsOrderItemService.getById(id);
 
@@ -55,7 +62,7 @@ public class WebOmsOrderItemController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("amazon:webomsorderitem:save")
+
     public R save(@RequestBody WebOmsOrderItemEntity webOmsOrderItem){
 		webOmsOrderItemService.save(webOmsOrderItem);
 
@@ -66,7 +73,7 @@ public class WebOmsOrderItemController {
      * 修改
      */
     @PutMapping("/update")
-    //@RequiresPermissions("amazon:webomsorderitem:update")
+
     public R update(@RequestBody WebOmsOrderItemEntity webOmsOrderItem){
 		webOmsOrderItemService.updateById(webOmsOrderItem);
 
@@ -77,7 +84,7 @@ public class WebOmsOrderItemController {
      * 删除
      */
     @DeleteMapping("/delete")
-    //@RequiresPermissions("amazon:webomsorderitem:delete")
+
     public R delete(@RequestBody Long[] ids){
 		webOmsOrderItemService.removeByIds(Arrays.asList(ids));
 

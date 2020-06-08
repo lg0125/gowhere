@@ -32,7 +32,7 @@ public class AirlinePmsAirportRegionController {
      * 列表
      */
     @GetMapping("/list")
-    //@RequiresPermissions("boeing:airlinepmsairportregion:list")
+
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsAirportRegionService.queryPage(params);
 
@@ -44,7 +44,7 @@ public class AirlinePmsAirportRegionController {
      * 信息
      */
     @GetMapping("/info/{id}")
-    //@RequiresPermissions("boeing:airlinepmsairportregion:info")
+
     public R info(@PathVariable("id") Long id){
 		AirlinePmsAirportRegionEntity airlinePmsAirportRegion = airlinePmsAirportRegionService.getById(id);
 
@@ -55,7 +55,6 @@ public class AirlinePmsAirportRegionController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("boeing:airlinepmsairportregion:save")
     public R save(@RequestBody AirlinePmsAirportRegionEntity airlinePmsAirportRegion){
 		airlinePmsAirportRegionService.save(airlinePmsAirportRegion);
 
@@ -66,7 +65,6 @@ public class AirlinePmsAirportRegionController {
      * 修改
      */
     @PutMapping("/update")
-    //@RequiresPermissions("boeing:airlinepmsairportregion:update")
     public R update(@RequestBody AirlinePmsAirportRegionEntity airlinePmsAirportRegion){
 		airlinePmsAirportRegionService.updateById(airlinePmsAirportRegion);
 
@@ -77,7 +75,6 @@ public class AirlinePmsAirportRegionController {
      * 删除
      */
     @DeleteMapping("/delete")
-    //@RequiresPermissions("boeing:airlinepmsairportregion:delete")
     public R delete(@RequestBody Long[] ids){
 		airlinePmsAirportRegionService.removeByIds(Arrays.asList(ids));
 

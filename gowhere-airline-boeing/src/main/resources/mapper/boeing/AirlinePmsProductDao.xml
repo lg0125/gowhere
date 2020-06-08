@@ -16,6 +16,10 @@
         <result property="planeId" column="plane_id"/>
         <result property="productId" column="product_id"/>
         <result property="deleted" column="deleted"/>
+        <result property="fromAirportName" column="from_airport_name"/>
+        <result property="toAirportName" column="to_airport_name"/>
+        <result property="fromRegion" column="from_region"/>
+        <result property="toRegion" column="to_region"/>
     </resultMap>
 
 

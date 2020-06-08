@@ -8,7 +8,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
-@EnableCaching
 @EnableRabbit
 @MapperScan("com.eighty.gowhere.boeing.dao")
 @SpringBootApplication

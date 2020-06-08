@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import com.eighty.gowhere.boeing.entity.AirlinePmsOrderInfoEntity;
 import com.eighty.gowhere.boeing.utils.PageUtils;
+import com.eighty.gowhere.boeing.vo.OrderDrawVo;
 
 import java.util.Map;
 
@@ -17,5 +18,8 @@ import java.util.Map;
 public interface AirlinePmsOrderInfoService extends IService<AirlinePmsOrderInfoEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    OrderDrawVo DrawOrder(Long orderId);
+
 }
 

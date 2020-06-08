@@ -1,11 +1,13 @@
 package com.eighty.gowhere.boeing.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.eighty.gowhere.boeing.utils.PageUtils;
 import com.eighty.gowhere.boeing.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import com.eighty.gowhere.boeing.entity.AirlinePmsProductEntity;
@@ -22,27 +24,51 @@ import com.eighty.gowhere.boeing.service.AirlinePmsProductService;
  */
 @RestController
 @RequestMapping("boeing/airline/pms/product")
+@CrossOrigin
 public class AirlinePmsProductController {
     @Autowired
     private AirlinePmsProductService airlinePmsProductService;
 
+    //TODO
+    @GetMapping("/listTimeAsc")
+    @Cacheable(value = {"list"},key = "#root.method.name")
+    public R listTimeAsc(@RequestParam Map<String, Object> params){
+        List<AirlinePmsProductEntity> listTimeAsc =  airlinePmsProductService.queryTimeAsc(params);
+        return R.ok().put("list",listTimeAsc);
+    }
+
+    //TODO
+    @GetMapping("/listPriceAsc")
+    @Cacheable(value = {"list"},key = "#root.method.name")
+    public R listPriceAsc(@RequestParam Map<String, Object> params){
+        List<AirlinePmsProductEntity> listPriceAsc =  airlinePmsProductService.queryPriceAsc(params);
+
+        return R.ok().put("list",listPriceAsc);
+    }
+
+    //TODO
+    @GetMapping("/list")
+    @Cacheable(value = {"list"},key = "#root.method.name")
+    public R list(@RequestParam Map<String, Object> params){
+        List<AirlinePmsProductEntity> list = airlinePmsProductService.listByMap(params);
+        return R.ok().put("list",list);
+    }
+
     /**
      * 列表
      */
-    @GetMapping("/list")
-    //@RequiresPermissions("boeing:airlinepmsproduct:list")
+    /*@GetMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsProductService.queryPage(params);
 
         return R.ok().put("page", page);
-    }
-
+    }*/
 
     /**
      * 信息
      */
     @GetMapping("/info/{id}")
-    //@RequiresPermissions("boeing:airlinepmsproduct:info")
+
     public R info(@PathVariable("id") Long id){
 		AirlinePmsProductEntity airlinePmsProduct = airlinePmsProductService.getById(id);
 
@@ -53,7 +79,7 @@ public class AirlinePmsProductController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("boeing:airlinepmsproduct:save")
+
     public R save(@RequestBody AirlinePmsProductEntity airlinePmsProduct){
 		airlinePmsProductService.save(airlinePmsProduct);
 
@@ -64,7 +90,7 @@ public class AirlinePmsProductController {
      * 修改
      */
     @PutMapping("/update")
-    //@RequiresPermissions("boeing:airlinepmsproduct:update")
+
     public R update(@RequestBody AirlinePmsProductEntity airlinePmsProduct){
 		airlinePmsProductService.updateById(airlinePmsProduct);
 
@@ -75,7 +101,7 @@ public class AirlinePmsProductController {
      * 删除
      */
     @DeleteMapping("/delete")
-    //@RequiresPermissions("boeing:airlinepmsproduct:delete")
+
     public R delete(@RequestBody Long[] ids){
 		airlinePmsProductService.removeByIds(Arrays.asList(ids));
 

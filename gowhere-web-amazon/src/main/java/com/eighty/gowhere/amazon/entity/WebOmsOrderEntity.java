@@ -62,4 +62,6 @@ public class WebOmsOrderEntity implements Serializable {
 	 */
 	private Integer deleted;
 
+	private String airlineName;
+
 }

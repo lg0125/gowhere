@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.eighty.gowhere.amazon.utils.PageUtils;
 import com.eighty.gowhere.amazon.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,21 @@ import com.eighty.gowhere.amazon.service.WebOmsOrderService;
 @RestController
 @RequestMapping("amazon/web/oms/order")
 public class WebOmsOrderController {
+
     @Autowired
     private WebOmsOrderService webOmsOrderService;
+
+    @GetMapping("/{orderId}")
+    public WebOmsOrderEntity getOrderByOrderId(@PathVariable Long orderId){
+
+        return webOmsOrderService.getOne(
+                new QueryWrapper<WebOmsOrderEntity>().eq("order_id", orderId));
+    }
 
     /**
      * 列表
      */
     @GetMapping("/list")
-    //@RequiresPermissions("amazon:webomsorder:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = webOmsOrderService.queryPage(params);
 
@@ -44,7 +52,6 @@ public class WebOmsOrderController {
      * 信息
      */
     @GetMapping("/info/{id}")
-    //@RequiresPermissions("amazon:webomsorder:info")
     public R info(@PathVariable("id") Long id){
 		WebOmsOrderEntity webOmsOrder = webOmsOrderService.getById(id);
 

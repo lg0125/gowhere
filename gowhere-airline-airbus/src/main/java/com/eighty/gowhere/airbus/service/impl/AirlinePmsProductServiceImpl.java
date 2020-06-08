@@ -3,7 +3,12 @@ package com.eighty.gowhere.airbus.service.impl;
 import com.eighty.gowhere.airbus.utils.PageUtils;
 import com.eighty.gowhere.airbus.utils.Query;
 import org.springframework.stereotype.Service;
+
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -25,6 +30,15 @@ public class AirlinePmsProductServiceImpl extends ServiceImpl<AirlinePmsProductD
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public List<AirlinePmsProductEntity> queryPriceAsc(Map<String, Object> params) {
+        List<AirlinePmsProductEntity> list = this.listByMap(params).stream()
+                .sorted(Comparator.comparing(AirlinePmsProductEntity::getPrice))
+                .collect(Collectors.toList());
+
+        return list;
     }
 
 }

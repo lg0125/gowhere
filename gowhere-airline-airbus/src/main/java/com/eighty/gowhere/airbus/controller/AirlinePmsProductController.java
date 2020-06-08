@@ -1,6 +1,7 @@
 package com.eighty.gowhere.airbus.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -28,11 +29,18 @@ public class AirlinePmsProductController {
     @Autowired
     private AirlinePmsProductService airlinePmsProductService;
 
+
+    @GetMapping("/listPriceAsc")
+    public R listPriceAsc(@RequestParam Map<String, Object> params){
+        List<AirlinePmsProductEntity> listPriceAsc = airlinePmsProductService.queryPriceAsc(params);
+
+        return R.ok().put("list",listPriceAsc);
+    }
+
     /**
      * 列表
      */
     @GetMapping("/list")
-    //@RequiresPermissions("airbus:airlinepmsproduct:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsProductService.queryPage(params);
 
@@ -44,7 +52,7 @@ public class AirlinePmsProductController {
      * 信息
      */
     @GetMapping("/info/{id}")
-    //@RequiresPermissions("airbus:airlinepmsproduct:info")
+
     public R info(@PathVariable("id") Long id){
 		AirlinePmsProductEntity airlinePmsProduct = airlinePmsProductService.getById(id);
 
@@ -55,7 +63,7 @@ public class AirlinePmsProductController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("airbus:airlinepmsproduct:save")
+
     public R save(@RequestBody AirlinePmsProductEntity airlinePmsProduct){
 		airlinePmsProductService.save(airlinePmsProduct);
 
@@ -66,7 +74,7 @@ public class AirlinePmsProductController {
      * 修改
      */
     @PutMapping("/update")
-    //@RequiresPermissions("airbus:airlinepmsproduct:update")
+
     public R update(@RequestBody AirlinePmsProductEntity airlinePmsProduct){
 		airlinePmsProductService.updateById(airlinePmsProduct);
 
@@ -77,7 +85,6 @@ public class AirlinePmsProductController {
      * 删除
      */
     @DeleteMapping("/delete")
-    //@RequiresPermissions("airbus:airlinepmsproduct:delete")
     public R delete(@RequestBody Long[] ids){
 		airlinePmsProductService.removeByIds(Arrays.asList(ids));
 

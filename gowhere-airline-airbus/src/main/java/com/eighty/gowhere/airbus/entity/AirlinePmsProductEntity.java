@@ -1,5 +1,7 @@
 package com.eighty.gowhere.airbus.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -24,7 +26,7 @@ public class AirlinePmsProductEntity implements Serializable {
 	/**
 	 * 
 	 */
-	@TableId
+	@TableId(type = IdType.ASSIGN_ID)
 	private Long id;
 	/**
 	 * 
@@ -66,5 +68,17 @@ public class AirlinePmsProductEntity implements Serializable {
 	 * 
 	 */
 	private Integer deleted;
+
+	@TableField(exist = false)
+	private String airlineName = "airbus";
+
+	private String fromAirportName;
+
+	private String toAirportName;
+
+
+	private String fromRegion;
+
+	private String toRegion;
 
 }

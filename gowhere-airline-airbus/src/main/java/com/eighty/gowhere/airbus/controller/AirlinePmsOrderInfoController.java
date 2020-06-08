@@ -23,7 +23,7 @@ import com.eighty.gowhere.airbus.service.AirlinePmsOrderInfoService;
  * @date 2020-06-02 10:54:24
  */
 @RestController
-@RequestMapping("airbus/airline/pms/order/info")
+@RequestMapping("airbus/airline/pms/order")
 public class AirlinePmsOrderInfoController {
     @Autowired
     private AirlinePmsOrderInfoService airlinePmsOrderInfoService;
@@ -32,7 +32,6 @@ public class AirlinePmsOrderInfoController {
      * 列表
      */
     @GetMapping("/list")
-    //@RequiresPermissions("airbus:airlinepmsorderinfo:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = airlinePmsOrderInfoService.queryPage(params);
 
@@ -44,7 +43,7 @@ public class AirlinePmsOrderInfoController {
      * 信息
      */
     @GetMapping("/info/{id}")
-    //@RequiresPermissions("airbus:airlinepmsorderinfo:info")
+
     public R info(@PathVariable("id") Integer id){
 		AirlinePmsOrderInfoEntity airlinePmsOrderInfo = airlinePmsOrderInfoService.getById(id);
 
@@ -55,7 +54,7 @@ public class AirlinePmsOrderInfoController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("airbus:airlinepmsorderinfo:save")
+
     public R save(@RequestBody AirlinePmsOrderInfoEntity airlinePmsOrderInfo){
 		airlinePmsOrderInfoService.save(airlinePmsOrderInfo);
 
@@ -66,7 +65,6 @@ public class AirlinePmsOrderInfoController {
      * 修改
      */
     @PutMapping("/update")
-    //@RequiresPermissions("airbus:airlinepmsorderinfo:update")
     public R update(@RequestBody AirlinePmsOrderInfoEntity airlinePmsOrderInfo){
 		airlinePmsOrderInfoService.updateById(airlinePmsOrderInfo);
 

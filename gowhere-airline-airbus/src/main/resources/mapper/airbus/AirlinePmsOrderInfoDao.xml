@@ -10,6 +10,7 @@
         <result property="payStatus" column="pay_status"/>
         <result property="ticketStatus" column="ticket_status"/>
         <result property="deleted" column="deleted"/>
+        <result property="payName" column="pay_name"/>
     </resultMap>
 
 

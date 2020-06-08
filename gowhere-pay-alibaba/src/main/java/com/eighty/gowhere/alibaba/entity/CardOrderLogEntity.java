@@ -54,4 +54,6 @@ public class CardOrderLogEntity implements Serializable {
 	 */
 	private Long payId;
 
+	private String airlineName;
+
 }

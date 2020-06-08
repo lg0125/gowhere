@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class GowhereAirlineBoeingApplicationTests {
 
-    @Autowired
+/*    @Autowired
     AirlinePmsOrderInfoService airlinePmsOrderInfoService;
 
     @Autowired
@@ -64,6 +64,6 @@ class GowhereAirlineBoeingApplicationTests {
                 null);
         amqpAdmin.declareBinding(binding);
         log.info("binding创建成功");
-    }
+    }*/
 
 }

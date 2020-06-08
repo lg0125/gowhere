@@ -13,6 +13,7 @@
         <result property="deleted" column="deleted"/>
         <result property="amount" column="amount"/>
         <result property="payId" column="pay_id"/>
+        <result property="airlineName" column="airline_name"/>
     </resultMap>
 
 
