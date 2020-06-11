@@ -1,0 +1,58 @@
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 0
+JvmtiExport can_post_on_exceptions 0
+# 383 ciObject found
+ciMethod java/lang/Object <init> ()V 4097 1 1795006 0 0
+ciMethod java/lang/Object getClass ()Ljava/lang/Class; 2049 1 256 0 -1
+ciMethod java/lang/Object hashCode ()I 2049 1 256 0 -1
+ciMethod java/lang/Object clone ()Ljava/lang/Object; 3073 1 384 0 -1
+ciMethod java/lang/Class isArray ()Z 2049 1 256 0 -1
+ciMethod java/lang/Class getTypeParameters ()[Ljava/lang/reflect/TypeVariable; 985 1 23394 0 -1
+ciMethod java/lang/Class getComponentType ()Ljava/lang/Class; 4113 1 514 0 -1
+ciMethod java/lang/Class getModifiers ()I 3081 1 385 0 -1
+ciMethod java/lang/Class isMemberClass ()Z 33 1 143 0 -1
+ciMethod java/lang/reflect/Field getGenericType ()Ljava/lang/reflect/Type; 233 1 162 0 -1
+ciMethod java/lang/reflect/Method getGenericSignature ()Ljava/lang/String; 1305 1 163 0 0
+ciMethod java/lang/reflect/Method getFactory ()Lsun/reflect/generics/factory/GenericsFactory; 201 1 1357 0 0
+ciMethod java/lang/reflect/Method getGenericInfo ()Lsun/reflect/generics/repository/MethodRepository; 585 1 19087 0 0
+ciMethod java/lang/reflect/Method hasGenericInformation ()Z 2881 1 32527 0 0
+ciMethod java/lang/reflect/Method getReturnType ()Ljava/lang/Class; 1081 1 135 0 0
+ciMethod java/lang/reflect/Method getGenericReturnType ()Ljava/lang/reflect/Type; 1601 1 17926 0 0
+ciMethod java/lang/reflect/Method getParameterTypes ()[Ljava/lang/Class; 2105 1 46663 0 256
+ciMethod java/lang/reflect/Method getGenericParameterTypes ()[Ljava/lang/reflect/Type; 2145 1 21054 0 1888
+ciMethod java/lang/reflect/Method getGenericInfo ()Lsun/reflect/generics/repository/ConstructorRepository; 289 1 8826 0 0
+ciMethod java/lang/reflect/Executable hasGenericInformation ()Z 0 0 1 0 -1
+ciMethod java/lang/reflect/Executable getGenericInfo ()Lsun/reflect/generics/repository/ConstructorRepository; 0 0 1 0 -1
+ciMethod java/lang/reflect/Executable getDeclaringClass ()Ljava/lang/Class; 0 0 1 0 -1
+ciMethod java/lang/reflect/Executable getParameterTypes ()[Ljava/lang/Class; 0 0 1 0 -1
+ciMethod java/lang/reflect/Executable getParameterCount ()I 0 0 1 0 -1
+ciMethod java/lang/reflect/Executable getGenericParameterTypes ()[Ljava/lang/reflect/Type; 2097 1 21119 0 0
+ciMethod java/lang/reflect/Constructor getFactory ()Lsun/reflect/generics/factory/GenericsFactory; 185 1 23 0 -1
+ciMethod java/lang/reflect/Constructor getGenericInfo ()Lsun/reflect/generics/repository/ConstructorRepository; 433 1 54 0 0
+ciMethod java/lang/reflect/Constructor hasGenericInformation ()Z 521 1 65 0 0
+ciMethod java/lang/reflect/Constructor getDeclaringClass ()Ljava/lang/Class; 1081 1 135 0 0
+ciMethod java/lang/reflect/Constructor getParameterTypes ()[Ljava/lang/Class; 1561 1 7175 0 0
+ciMethod java/lang/reflect/Constructor getGenericParameterTypes ()[Ljava/lang/reflect/Type; 521 1 65 0 0
+ciMethod java/lang/reflect/Constructor getSignature ()Ljava/lang/String; 793 1 99 0 -1
+ciMethod java/lang/Number <init> ()V 4017 1 22212 0 32
+ciMethod java/lang/Integer valueOf (I)Ljava/lang/Integer; 745 1 9326 0 192
+ciMethod java/lang/Integer <init> (I)V 2337 1 9910 0 0
+ciMethod java/lang/ref/ReferenceQueue reallyPoll ()Ljava/lang/ref/Reference; 9 1 7421 0 256
+ciMethod java/lang/ref/ReferenceQueue poll ()Ljava/lang/ref/Reference; 2049 1 24638 0 736
+ciMethod sun/misc/VM addFinalRefCount (I)V 4097 1 14206 0 0
+ciMethod java/util/concurrent/atomic/AtomicInteger get ()I 1057 1 132 0 0
+ciMethod sun/reflect/generics/repository/GenericDeclRepository <init> (Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V 697 1 1779 0 -1
+ciMethod sun/reflect/generics/repository/AbstractRepository getFactory ()Lsun/reflect/generics/factory/GenericsFactory; 1025 1 128 0 0
+ciMethod sun/reflect/generics/repository/AbstractRepository getTree ()Lsun/reflect/generics/tree/Tree; 1033 1 129 0 0
+ciMethod sun/reflect/generics/repository/AbstractRepository getReifier ()Lsun/reflect/generics/visitor/Reifier; 1433 1 4200 0 0
+ciMethod java/lang/reflect/Modifier isStatic (I)Z 2089 1 27468 0 -1
+ciMethodData java/lang/Object <init> ()V 2 1795010 orig 264 88 50 68 92 0 0 0 0 128 4 218 22 0 0 0 0 32 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 17 14 219 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 1 0 0 0 0 0 0 0 255 255 255 255 0 0 0 0 0 0 0 0 data 0 oops 0
+ciMethod java/lang/reflect/Array newInstance (Ljava/lang/Class;I)Ljava/lang/Object; 2913 1 7759 0 0
+ciMethod java/lang/reflect/Array newArray (Ljava/lang/Class;I)Ljava/lang/Object; 3081 1 385 0 -1
+ciMethod java/util/concurrent/locks/ReentrantLock lock ()V 1761 1 10216 0 -1
+ciMethod java/util/concurrent/locks/ReentrantLock unlock ()V 1769 1 13258 0 -1
+ciMethod java/util/EnumSet noneOf (Ljava/lang/Class;)Ljava/util/EnumSet; 2049 1 6521 0 -1
+ciMethod java/util/EnumSet of (Ljava/lang/Enum;[Ljava/lang/Enum;)Ljava/util/EnumSet; 2049 4097 5181 0 -1
+ciMethodData java/lang/Number <init> ()V 2 22212 orig 264 88 50 68 92 0 0 0 0 8 214 227 22 0 0 0 0 48 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 245 1 0 0 113 166 2 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 3 0 2 0 0 0 16 0 0 0 255 255 255 255 2 0 1 0 0 0 0 0 data 2 0x10002 0x54ce oops 0
+ciMethodData java/lang/ref/ReferenceQueue poll ()Ljava/lang/ref/Reference; 2 24638 orig 264 88 50 68 92 0 0 0 0 208 17 232 22 0 0 0 0 80 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 241 249 2 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 9 0 2 0 0 0 48 0 0 0 255 255 255 255 7 0 4 0 0 0 0 0 data 6 0x40007 0x160 0x20 0x5dde 0x110002 0x160 oops 0
+ciMethodData java/lang/ref/ReferenceQueue reallyPoll ()Ljava/lang/ref/Reference; 2 7421 orig 264 88 50 68 92 0 0 0 0 8 17 232 22 0 0 0 0 0 2 0 0 64 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 77 68 79 32 101 120 116 114 97 32 100 97 116 97 32 108 111 99 107 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 17 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 225 231 0 0 1 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 14 0 2 0 0 0 184 0 0 0 255 255 255 255 7 0 6 0 0 0 0 0 data 23 0x60007 0x7 0xb8 0x1cf5 0xf0007 0x1ce7 0x38 0xe 0x130003 0xe 0x18 0x340004 0xfffffffffffffeca 0x2d98130 0x1bbf 0x1e224e80 0x2 0x370007 0x136 0x30 0x1bbf 0x3b0002 0x1bbf oops 2
