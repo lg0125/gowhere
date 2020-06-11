@@ -20,5 +20,10 @@ public interface AirlinePmsProductService extends IService<AirlinePmsProductEnti
     PageUtils queryPage(Map<String, Object> params);
 
     List<AirlinePmsProductEntity> queryPriceAsc(Map<String, Object> params);
+
+    List<AirlinePmsProductEntity> queryTimeAsc(Map<String, Object> params);
+
+
+    AirlinePmsProductEntity getProductByProductId(Long productId);
 }
 

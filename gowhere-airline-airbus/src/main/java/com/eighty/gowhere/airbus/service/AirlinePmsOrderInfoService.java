@@ -17,5 +17,7 @@ import java.util.Map;
 public interface AirlinePmsOrderInfoService extends IService<AirlinePmsOrderInfoEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    AirlinePmsOrderInfoEntity queryById(Long orderId);
 }
 

@@ -49,4 +49,11 @@ public class AirlinePmsProductServiceImpl extends ServiceImpl<AirlinePmsProductD
         return list;
     }
 
+    @Override
+    public AirlinePmsProductEntity getProductByProductId(Long productId) {
+        QueryWrapper<AirlinePmsProductEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("product_id",productId);
+        return this.getOne(wrapper);
+    }
+
 }

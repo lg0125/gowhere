@@ -59,4 +59,11 @@ public class AirlinePmsOrderInfoServiceImpl extends ServiceImpl<AirlinePmsOrderI
        return null;
     }
 
+    @Override
+    public AirlinePmsOrderInfoEntity queryById(Long orderId) {
+        QueryWrapper<AirlinePmsOrderInfoEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("order_id",orderId);
+        return this.getOne(wrapper);
+    }
+
 }

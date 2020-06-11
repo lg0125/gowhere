@@ -40,7 +40,7 @@ public class WebOmsOrderEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private BigDecimal amount;
+	private BigDecimal amountPay;
 	/**
 	 * 
 	 */
@@ -48,7 +48,7 @@ public class WebOmsOrderEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Long card;
+	private Long cardId;
 	/**
 	 * 
 	 */
@@ -63,5 +63,9 @@ public class WebOmsOrderEntity implements Serializable {
 	private Integer deleted;
 
 	private String airlineName;
+
+	private Long productId;
+
+	private Integer payStatus;
 
 }

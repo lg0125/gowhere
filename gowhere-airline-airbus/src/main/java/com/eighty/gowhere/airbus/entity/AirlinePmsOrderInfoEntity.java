@@ -44,4 +44,5 @@ public class AirlinePmsOrderInfoEntity implements Serializable {
 
 	private String payName;
 
+	private Long productId;
 }

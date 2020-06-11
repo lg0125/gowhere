@@ -1,15 +1,21 @@
 package com.eighty.gowhere.alibaba.controller;
 
 
+import com.eighty.gowhere.alibaba.dto.CardDto;
 import com.eighty.gowhere.alibaba.entity.CardEntity;
+import com.eighty.gowhere.alibaba.entity.CardOrderLogEntity;
+import com.eighty.gowhere.alibaba.service.CardOrderLogService;
 import com.eighty.gowhere.alibaba.service.CardService;
 
 import com.eighty.gowhere.alibaba.utils.PageUtils;
 import com.eighty.gowhere.alibaba.utils.R;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 
 
@@ -23,9 +29,55 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("alibaba/card")
+@CrossOrigin
 public class CardController {
     @Autowired
     private CardService cardService;
+    @Autowired
+    private CardOrderLogService cardOrderLogService;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
+    //TODO
+    @PutMapping("/entity/update")
+    public R entityUpdate(@RequestBody CardDto cardDto){
+        String result = "";
+
+        Long orderId = cardDto.getOrderId();
+        Long cardId = cardDto.getCardId();
+        String airlineName = cardDto.getAirlineName();
+        BigDecimal amount = cardDto.getAmountPay();
+
+        CardEntity cardEntity = cardService.queryByCardId(cardId);
+        BigDecimal cardAmount = cardEntity.getAmount();
+        BigDecimal subtractResult = cardAmount.subtract(amount);
+
+        if(subtractResult.compareTo(BigDecimal.ZERO) < 0){
+            result = "error";
+        }else{
+            cardEntity.setAmount(subtractResult);
+            cardService.saveOrUpdate(cardEntity);
+
+            CardOrderLogEntity cardOrderLogEntity = cardOrderLogService.getByOrderId(orderId);
+
+            Integer OK = 1;
+            cardOrderLogEntity.setAmount(amount);
+            cardOrderLogEntity.setPayStatus(OK);
+            cardOrderLogEntity.setConfirmTime(new Date());
+            cardOrderLogService.saveOrUpdate(cardOrderLogEntity);
+
+            result = "success";
+
+            //TODO pay发送给airline
+            if(airlineName.equals("airbus")){
+                rabbitTemplate.convertAndSend("gowhere-exchange","airbus",orderId);
+            }else{
+                rabbitTemplate.convertAndSend("gowhere-exchange","boeing",orderId);
+            }
+        }
+
+        return R.ok().put("result",result);
+    }
 
     /**
      * 列表

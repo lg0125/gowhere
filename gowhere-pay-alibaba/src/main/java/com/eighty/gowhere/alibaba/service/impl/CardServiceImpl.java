@@ -27,4 +27,11 @@ public class CardServiceImpl extends ServiceImpl<CardDao, CardEntity> implements
         return new PageUtils(page);
     }
 
+    @Override
+    public CardEntity queryByCardId(Long cardId) {
+        QueryWrapper<CardEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("card_id",cardId);
+        return this.getOne(wrapper);
+    }
+
 }

@@ -27,4 +27,11 @@ public class WebOmsOrderPayinfoServiceImpl extends ServiceImpl<WebOmsOrderPayinf
         return new PageUtils(page);
     }
 
+    @Override
+    public WebOmsOrderPayinfoEntity getByOrderId(Long orderId) {
+        QueryWrapper<WebOmsOrderPayinfoEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("order_id",orderId);
+        return this.getOne(wrapper);
+    }
+
 }

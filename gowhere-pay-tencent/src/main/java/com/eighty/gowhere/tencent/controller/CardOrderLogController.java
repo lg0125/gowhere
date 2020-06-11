@@ -22,7 +22,8 @@ import com.eighty.gowhere.tencent.utils.*;
  * @date 2020-06-02 10:40:56
  */
 @RestController
-@RequestMapping("tencent/card/order/log")
+@RequestMapping("tencent/cardorderlog")
+@CrossOrigin
 public class CardOrderLogController {
     @Autowired
     private CardOrderLogService cardOrderLogService;

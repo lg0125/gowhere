@@ -1,5 +1,6 @@
 package com.eighty.gowhere.airbus.service.impl;
 
+import com.eighty.gowhere.airbus.entity.AirlinePmsOrderInfoEntity;
 import com.eighty.gowhere.airbus.utils.PageUtils;
 import com.eighty.gowhere.airbus.utils.Query;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,22 @@ public class AirlinePmsProductServiceImpl extends ServiceImpl<AirlinePmsProductD
                 .collect(Collectors.toList());
 
         return list;
+    }
+
+    @Override
+    public List<AirlinePmsProductEntity> queryTimeAsc(Map<String, Object> params) {
+        List<AirlinePmsProductEntity> list = this.listByMap(params).stream()
+                .sorted(Comparator.comparing(AirlinePmsProductEntity::getFromTime))
+                .collect(Collectors.toList());
+
+        return list;
+    }
+
+    @Override
+    public AirlinePmsProductEntity getProductByProductId(Long productId) {
+        QueryWrapper<AirlinePmsProductEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("product_id",productId);
+        return this.getOne(wrapper);
     }
 
 }

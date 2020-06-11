@@ -1,9 +1,11 @@
 package com.eighty.gowhere.boeing.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.eighty.gowhere.boeing.utils.PageUtils;
 import com.eighty.gowhere.boeing.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,31 @@ public class AirlinePmsProductController {
         List<AirlinePmsProductEntity> list = airlinePmsProductService.listByMap(params);
         return R.ok().put("list",list);
     }
+
+    //TODO
+    @GetMapping("/entity/list")
+    public List<AirlinePmsProductEntity> entityList(@RequestParam Map<String, Object> params){
+        return airlinePmsProductService.listByMap(params);
+    }
+
+    //TODO
+    @GetMapping("/entity/info/{productId}")
+    public AirlinePmsProductEntity entityInfo(@PathVariable Long productId){
+        QueryWrapper<AirlinePmsProductEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("product_id",productId);
+
+        return airlinePmsProductService.getOne(wrapper);
+    }
+
+  /*  @GetMapping("/entity/listPriceAsc")
+    public List<AirlinePmsProductEntity> entityListPriceAsc(@RequestParam Map<String, Object> params){
+        return airlinePmsProductService.queryPriceAsc(params);
+    }
+
+    @GetMapping("/entity/listTimeAsc")
+    public List<AirlinePmsProductEntity> entityListTimeAsc(@RequestParam Map<String, Object> params){
+        return airlinePmsProductService.queryTimeAsc(params);
+    }*/
 
     /**
      * 列表

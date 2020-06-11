@@ -55,7 +55,6 @@ public class CardOrderLogController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("alibaba:cardorderlog:save")
     public R save(@RequestBody CardOrderLogEntity cardOrderLog){
 		cardOrderLogService.save(cardOrderLog);
 

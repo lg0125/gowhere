@@ -18,5 +18,7 @@ import java.util.Map;
 public interface WebOmsOrderOpLogService extends IService<WebOmsOrderOpLogEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    WebOmsOrderOpLogEntity getByOrderId(Long orderId);
 }
 

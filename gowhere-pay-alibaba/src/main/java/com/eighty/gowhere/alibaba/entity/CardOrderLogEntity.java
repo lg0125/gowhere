@@ -28,11 +28,11 @@ public class CardOrderLogEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String orderId;
+	private Long orderId;
 	/**
 	 * 
 	 */
-	private String payStatus;
+	private Integer payStatus;
 	/**
 	 * 
 	 */
@@ -52,7 +52,7 @@ public class CardOrderLogEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Long payId;
+	private Long cardId;
 
 	private String airlineName;
 

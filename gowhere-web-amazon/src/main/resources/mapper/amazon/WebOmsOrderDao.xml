@@ -9,13 +9,15 @@
         <result property="orderId" column="order_id"/>
         <result property="memberId" column="member_id"/>
         <result property="memberName" column="member_name"/>
-        <result property="amount" column="amount"/>
+        <result property="amountPay" column="amount_pay"/>
         <result property="payName" column="pay_name"/>
-        <result property="card" column="card"/>
+        <result property="cardId" column="card_id"/>
         <result property="memberPhone" column="member_phone"/>
         <result property="orderStatus" column="order_status"/>
         <result property="deleted" column="deleted"/>
         <result property="airlineName" column="airline_name"/>
+        <result property="productId" column="product_id"/>
+        <result property="payStatus" column="pay_status"/>
     </resultMap>
 
 

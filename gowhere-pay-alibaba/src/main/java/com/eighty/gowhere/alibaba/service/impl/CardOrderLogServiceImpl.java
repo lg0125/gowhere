@@ -27,4 +27,11 @@ public class CardOrderLogServiceImpl extends ServiceImpl<CardOrderLogDao, CardOr
         return new PageUtils(page);
     }
 
+    @Override
+    public CardOrderLogEntity getByOrderId(Long orderId) {
+        QueryWrapper<CardOrderLogEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("order_id",orderId);
+        return this.getOne(wrapper);
+    }
+
 }

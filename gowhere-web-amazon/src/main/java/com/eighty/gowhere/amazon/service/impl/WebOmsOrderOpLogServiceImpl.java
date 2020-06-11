@@ -27,4 +27,11 @@ public class WebOmsOrderOpLogServiceImpl extends ServiceImpl<WebOmsOrderOpLogDao
         return new PageUtils(page);
     }
 
+    @Override
+    public WebOmsOrderOpLogEntity getByOrderId(Long orderId) {
+        QueryWrapper<WebOmsOrderOpLogEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("order_id",orderId);
+        return this.getOne(wrapper);
+    }
+
 }

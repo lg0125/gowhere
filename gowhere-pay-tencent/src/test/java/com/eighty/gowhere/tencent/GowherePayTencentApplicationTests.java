@@ -2,6 +2,7 @@ package com.eighty.gowhere.tencent;
 
 import com.eighty.gowhere.tencent.entity.CardEntity;
 import com.eighty.gowhere.tencent.service.CardService;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.AmqpAdmin;
@@ -13,11 +14,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 
+@Ignore
 @Slf4j
 @SpringBootTest
 class GowherePayTencentApplicationTests {
 
-    @Autowired
+/*    @Autowired
     CardService cardService;
 
     @Autowired
@@ -65,7 +67,7 @@ class GowherePayTencentApplicationTests {
                 null);
         amqpAdmin.declareBinding(binding);
         log.info("binding创建成功");
-    }
+    }*/
 
 
 }

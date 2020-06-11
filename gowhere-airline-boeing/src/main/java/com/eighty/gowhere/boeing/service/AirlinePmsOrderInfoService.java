@@ -21,5 +21,6 @@ public interface AirlinePmsOrderInfoService extends IService<AirlinePmsOrderInfo
 
     OrderDrawVo DrawOrder(Long orderId);
 
+    AirlinePmsOrderInfoEntity queryById(Long orderId);
 }
 

@@ -62,7 +62,6 @@ public class WebOmsOrderController {
      * 保存
      */
     @PostMapping("/save")
-    //@RequiresPermissions("amazon:webomsorder:save")
     public R save(@RequestBody WebOmsOrderEntity webOmsOrder){
 		webOmsOrderService.save(webOmsOrder);
 
@@ -73,7 +72,6 @@ public class WebOmsOrderController {
      * 修改
      */
     @PutMapping("/update")
-    //@RequiresPermissions("amazon:webomsorder:update")
     public R update(@RequestBody WebOmsOrderEntity webOmsOrder){
 		webOmsOrderService.updateById(webOmsOrder);
 
@@ -84,7 +82,6 @@ public class WebOmsOrderController {
      * 删除
      */
     @DeleteMapping("/delete")
-    //@RequiresPermissions("amazon:webomsorder:delete")
     public R delete(@RequestBody Long[] ids){
 		webOmsOrderService.removeByIds(Arrays.asList(ids));
 

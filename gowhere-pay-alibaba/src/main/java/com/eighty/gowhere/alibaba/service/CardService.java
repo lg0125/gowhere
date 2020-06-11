@@ -17,5 +17,7 @@ import java.util.Map;
 public interface CardService extends IService<CardEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    CardEntity queryByCardId(Long cardId);
 }
 

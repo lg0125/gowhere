@@ -26,4 +26,24 @@ public class WebOmsOrderServiceImpl extends ServiceImpl<WebOmsOrderDao, WebOmsOr
         return new PageUtils(page);
     }
 
+    //TODO
+    @Override
+    public void closeOrder(WebOmsOrderEntity entity) {
+        WebOmsOrderEntity orderEntity = this.getById(entity.getId());
+
+        if(orderEntity.getPayStatus() == 0){
+            WebOmsOrderEntity updateOrder = new WebOmsOrderEntity();
+            updateOrder.setId(orderEntity.getId());
+            updateOrder.setDeleted(0);
+            this.updateById(updateOrder);
+        }
+    }
+
+    @Override
+    public WebOmsOrderEntity getByOrderId(Long orderId) {
+        QueryWrapper<WebOmsOrderEntity> wrapper = new QueryWrapper<>();
+        wrapper.eq("order_id",orderId);
+        return this.getOne(wrapper);
+    }
+
 }

@@ -54,7 +54,6 @@ public class AirlinePmsOrderInfoController {
      * 保存
      */
     @PostMapping("/save")
-
     public R save(@RequestBody AirlinePmsOrderInfoEntity airlinePmsOrderInfo){
 		airlinePmsOrderInfoService.save(airlinePmsOrderInfo);
 
